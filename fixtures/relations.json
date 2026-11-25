@@ -1,0 +1,44 @@
+[
+  {
+    "table": "engagements",
+    "field": "client",
+    "target": "organizations",
+    "nullable": false
+  },
+  {
+    "table": "members",
+    "field": "firm",
+    "target": "organizations",
+    "nullable": false
+  },
+  {
+    "table": "documents",
+    "field": "owner",
+    "target": "organizations",
+    "nullable": false
+  },
+  {
+    "table": "consentDrafts",
+    "field": "engagement",
+    "target": "engagements",
+    "nullable": false
+  },
+  {
+    "table": "consentDrafts",
+    "field": "member",
+    "target": "members",
+    "nullable": false
+  },
+  {
+    "table": "consentDrafts",
+    "field": "document",
+    "target": "documents",
+    "nullable": false
+  },
+  {
+    "table": "workDrafts",
+    "field": "engagement",
+    "target": "engagements",
+    "nullable": false
+  }
+]

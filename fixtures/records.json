@@ -1,0 +1,175 @@
+{
+  "organizations": [
+    {
+      "id": "ORG-A",
+      "name": "合成企业甲"
+    },
+    {
+      "id": "ORG-B",
+      "name": "合成企业乙"
+    },
+    {
+      "id": "ADV-A",
+      "name": "合成顾问所"
+    },
+    {
+      "id": "ADV-B",
+      "name": "合成接任顾问所"
+    }
+  ],
+  "engagements": [
+    {
+      "id": "ENG-1",
+      "client": "ORG-A",
+      "counterparties": [
+        "ORG-B"
+      ],
+      "areas": [
+        "legal",
+        "accounting"
+      ]
+    }
+  ],
+  "members": [
+    {
+      "id": "USER-A",
+      "firm": "ADV-A",
+      "affiliations": []
+    },
+    {
+      "id": "USER-B",
+      "firm": "ADV-A",
+      "affiliations": [
+        "ORG-B"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "DOC-1",
+      "owner": "ORG-A",
+      "version": 1,
+      "sections": [
+        "commercial",
+        "technical"
+      ],
+      "object": "plan-v1.txt",
+      "sectionRanges": {
+        "commercial": {
+          "startByte": 0,
+          "endByte": 9199
+        },
+        "technical": {
+          "startByte": 9200,
+          "endByte": 19599
+        }
+      },
+      "sha256": "16a0b0d7249ae3410591c6fb579b4aecc9230b018adbebed258f139b110efd2c"
+    },
+    {
+      "id": "DOC-2",
+      "owner": "ORG-A",
+      "version": 2,
+      "replaces": "DOC-1",
+      "sections": [
+        "commercial",
+        "technical"
+      ],
+      "object": "plan-v2.txt",
+      "sectionRanges": {
+        "commercial": {
+          "startByte": 0,
+          "endByte": 9199
+        },
+        "technical": {
+          "startByte": 9200,
+          "endByte": 19599
+        }
+      },
+      "sha256": "16a0b0d7249ae3410591c6fb579b4aecc9230b018adbebed258f139b110efd2c"
+    }
+  ],
+  "consentDrafts": [
+    {
+      "id": "SH-1",
+      "engagement": "ENG-1",
+      "member": "USER-A",
+      "document": "DOC-1",
+      "sections": [
+        "commercial"
+      ],
+      "purpose": "quote"
+    }
+  ],
+  "workDrafts": [
+    {
+      "id": "WP-1",
+      "engagement": "ENG-1",
+      "author": "ADV-A",
+      "references": [
+        "DOC-1"
+      ],
+      "transfer": "client-approval"
+    }
+  ],
+  "actors": [
+    {
+      "id": "client",
+      "role": "client",
+      "organization": "ORG-A"
+    },
+    {
+      "id": "secretary",
+      "role": "secretariat"
+    },
+    {
+      "id": "adviser-a",
+      "role": "adviser",
+      "member": "USER-A"
+    },
+    {
+      "id": "adviser-b",
+      "role": "adviser",
+      "member": "USER-B"
+    }
+  ],
+  "sourceChanges": [
+    {
+      "id": "TEAM-ADD",
+      "engagement": "ENG-1",
+      "member": "USER-B",
+      "firm": "ADV-A"
+    },
+    {
+      "id": "NDA-DRAFT",
+      "engagement": "ENG-1",
+      "members": [
+        "USER-A"
+      ],
+      "purpose": "quote"
+    },
+    {
+      "id": "SHARE-WITHDRAW",
+      "consent": "SH-1",
+      "client": "ORG-A"
+    },
+    {
+      "id": "HANDOFF-DRAFT",
+      "engagement": "ENG-1",
+      "documents": [
+        "DOC-1"
+      ],
+      "workProducts": [
+        "WP-1"
+      ],
+      "newFirm": "ADV-B"
+    },
+    {
+      "id": "CONFLICT-WAIVER",
+      "engagement": "ENG-1",
+      "member": "USER-B",
+      "clientDecision": "pending",
+      "counterpartyDecision": "pending"
+    }
+  ]
+}

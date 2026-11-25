@@ -1,0 +1,14 @@
+{
+  "name": "电子承诺签署方",
+  "path": "/signing/envelopes",
+  "lookup": "/signing/envelopes/",
+  "id": "envelopeRef",
+  "group": "signers",
+  "key": "Envelope-Request",
+  "modes": [
+    "accepted",
+    "rejected",
+    "accepted_disconnect",
+    "pending"
+  ]
+}
