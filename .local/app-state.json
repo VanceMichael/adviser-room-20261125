@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "counters": {
+    "seq": 100
+  },
+  "organizations": [
+    {
+      "id": "ORG-A",
+      "name": "合成企业甲"
+    },
+    {
+      "id": "ORG-B",
+      "name": "合成企业乙"
+    },
+    {
+      "id": "ADV-A",
+      "name": "合成顾问所"
+    },
+    {
+      "id": "ADV-B",
+      "name": "合成接任顾问所"
+    },
+    {
+      "id": "ORG-C",
+      "name": "合成保密其他客户丙"
+    },
+    {
+      "id": "ORG-D",
+      "name": "合成其他关联方丁"
+    }
+  ],
+  "members": [
+    {
+      "id": "USER-A",
+      "firm": "ADV-A",
+      "affiliations": []
+    },
+    {
+      "id": "USER-B",
+      "firm": "ADV-A",
+      "affiliations": [
+        "ORG-B"
+      ]
+    },
+    {
+      "id": "USER-C",
+      "firm": "ADV-A",
+      "name": "合成后加入成员丙",
+      "affiliations": []
+    },
+    {
+      "id": "USER-S",
+      "firm": "ADV-B",
+      "name": "合成接任成员",
+      "affiliations": []
+    }
+  ],
+  "actors": [
+    {
+      "id": "client",
+      "role": "client",
+      "organization": "ORG-A"
+    },
+    {
+      "id": "secretary",
+      "role": "secretariat"
+    },
+    {
+      "id": "adviser-a",
+      "role": "adviser",
+      "member": "USER-A"
+    },
+    {
+      "id": "adviser-b",
+      "role": "adviser",
+      "member": "USER-B"
+    },
+    {
+      "id": "adviser-c",
+      "role": "adviser",
+      "member": "USER-C",
+      "firm": "ADV-A",
+      "name": "合成顾问丙接口"
+    },
+    {
+      "id": "adviser-successor",
+      "role": "adviser",
+      "member": "USER-S",
+      "firm": "ADV-B",
+      "organization": "ADV-B",
+      "name": "合成接任顾问接口"
+    },
+    {
+      "id": "counterparty-b",
+      "role": "counterparty",
+      "organization": "ORG-B",
+      "name": "合成对手方书面豁免接口"
+    }
+  ],
+  "documents": [
+    {
+      "id": "DOC-1",
+      "owner": "ORG-A",
+      "version": 1,
+      "sections": [
+        "commercial",
+        "technical"
+      ],
+      "object": "plan-v1.txt",
+      "sectionRanges": {
+        "commercial": {
+          "startByte": 0,
+          "endByte": 9199
+        },
+        "technical": {
+          "startByte": 9200,
+          "endByte": 19599
+        }
+      },
+      "sha256": "16a0b0d7249ae3410591c6fb579b4aecc9230b018adbebed258f139b110efd2c",
+      "familyId": "DOC-1",
+      "storage": "fixture",
+      "status": "active",
+      "sizeBytes": 19600
+    },
+    {
+      "id": "DOC-2",
+      "owner": "ORG-A",
+      "version": 2,
+      "replaces": "DOC-1",
+      "sections": [
+        "commercial",
+        "technical"
+      ],
+      "object": "plan-v2.txt",
+      "sectionRanges": {
+        "commercial": {
+          "startByte": 0,
+          "endByte": 9199
+        },
+        "technical": {
+          "startByte": 9200,
+          "endByte": 19599
+        }
+      },
+      "sha256": "16a0b0d7249ae3410591c6fb579b4aecc9230b018adbebed258f139b110efd2c",
+      "familyId": "DOC-1",
+      "storage": "fixture",
+      "status": "active",
+      "sizeBytes": 19600
+    },
+    {
+      "id": "DOC-LARGE-SYNTH",
+      "owner": "ORG-A",
+      "familyId": "DOC-LARGE-SYNTH",
+      "version": 1,
+      "title": "大型合成分段资料",
+      "sections": [
+        "general",
+        "appendix"
+      ],
+      "sectionRanges": {
+        "general": {
+          "startByte": 0,
+          "endByte": 262143
+        },
+        "appendix": {
+          "startByte": 262144,
+          "endByte": 524287
+        }
+      },
+      "storage": "local",
+      "storageKey": "large-synthetic-v1.bin",
+      "sizeBytes": 524288,
+      "sha256": "022986a3f6ab3a6be5efebd133731d79553ff0c18f351785a353cc995d5cd4ef",
+      "createdAt": "2026-11-26T00:00:00.000Z"
+    }
+  ],
+  "fixtureDrafts": {
+    "consentDrafts": [
+      {
+        "id": "SH-1",
+        "engagement": "ENG-1",
+        "member": "USER-A",
+        "document": "DOC-1",
+        "sections": [
+          "commercial"
+        ],
+        "purpose": "quote"
+      }
+    ],
+    "workDrafts": [
+      {
+        "id": "WP-1",
+        "engagement": "ENG-1",
+        "author": "ADV-A",
+        "references": [
+          "DOC-1"
+        ],
+        "transfer": "client-approval"
+      }
+    ],
+    "sourceChanges": [
+      {
+        "id": "TEAM-ADD",
+        "engagement": "ENG-1",
+        "member": "USER-B",
+        "firm": "ADV-A"
+      },
+      {
+        "id": "NDA-DRAFT",
+        "engagement": "ENG-1",
+        "members": [
+          "USER-A"
+        ],
+        "purpose": "quote"
+      },
+      {
+        "id": "SHARE-WITHDRAW",
+        "consent": "SH-1",
+        "client": "ORG-A"
+      },
+      {
+        "id": "HANDOFF-DRAFT",
+        "engagement": "ENG-1",
+        "documents": [
+          "DOC-1"
+        ],
+        "workProducts": [
+          "WP-1"
+        ],
+        "newFirm": "ADV-B"
+      },
+      {
+        "id": "CONFLICT-WAIVER",
+        "engagement": "ENG-1",
+        "member": "USER-B",
+        "clientDecision": "pending",
+        "counterpartyDecision": "pending"
+      }
+    ]
+  },
+  "secretMappings": [
+    {
+      "id": "SM-USER-B-ORGB",
+      "memberId": "USER-B",
+      "organizationId": "ORG-B",
+      "code": "AFFILIATION_MATCH"
+    },
+    {
+      "id": "SM-HIDDEN-ROSTER",
+      "memberId": "USER-B",
+      "organizationId": "ORG-D",
+      "code": "AFFILIATION_MATCH"
+    }
+  ],
+  "secretOtherMatters": [
+    {
+      "id": "SECRET-ROSTER-1",
+      "client": "ORG-C",
+      "counterparties": [
+        "ORG-D"
+      ],
+      "note": "用于验证拒绝接单不会带出的其他企业名单"
+    }
+  ],
+  "engagements": [
+    {
+      "id": "ENG-1",
+      "client": "ORG-A",
+      "counterparties": [
+        "ORG-B"
+      ],
+      "areas": [
+        "legal",
+        "accounting"
+      ],
+      "relatedParties": [],
+      "materialScope": [],
+      "status": "submitted",
+      "stage": "submitted",
+      "createdBy": "client",
+      "createdAt": "2026-11-26T00:00:00.000Z"
+    }
+  ],
+  "teamMemberships": [
+    {
+      "id": "TM-SEED-A",
+      "engagementId": "ENG-1",
+      "firmId": "ADV-A",
+      "memberId": "USER-A",
+      "status": "active",
+      "reason": "synthetic-actor-bootstrap",
+      "createdAt": "2026-11-26T00:00:00.000Z",
+      "removedAt": null
+    }
+  ],
+  "inquiries": [],
+  "screenings": [],
+  "ndas": [],
+  "grants": [],
+  "disclosures": [],
+  "commissions": [],
+  "workProducts": [],
+  "handoffs": [],
+  "disputes": [],
+  "subcontracts": [],
+  "accessEvents": [],
+  "auditEvents": [],
+  "notifications": []
+}
